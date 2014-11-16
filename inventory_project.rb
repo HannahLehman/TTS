@@ -56,32 +56,37 @@ def edit_items
 		prompt
 		@input = gets.chomp.upcase 
 	end
-				
-	if @input == "A"
-		@input = @kbs
-	elsif @input == "B"
-		@input = @hop
-	elsif @input == "C"
-		@input = @port
-	elsif @input == "D"
-		@input = @av
-	elsif @input == "NEW"
-		clear
-		puts "Please enter a name for the NEW inventory item"
-		@input = gets.chomp
-	elsif @input == "LIST"	
-		clear
-		list_items		
+	case @input		
+		when "A"
+			@input = @kbs
+		when "B"
+			@input = @hop
+		when "C"
+			@input = @port
+		when "D"
+			@input = @av
+		when "NEW"
+			clear
+			puts "Please enter a name for the NEW inventory item"
+			@input = gets.chomp
+		when "LIST"	
+			clear
+			list_items		
 	end
 
 	clear
-	puts "Great! What is the new quantity of #{@input}"
-	@update = gets.chomp.to_i
-	@items[@input] = @update
-	
-	clear
-	puts "The total has been updated to #{@update} bottles of #{@input}"
 
+	puts "Are you sure you want to add #{@input} to the inventory? (Y/N)"
+	confirm = gets.chomp
+		if confirm == "y" || confirm == "yes"
+			clear
+			puts "Great! What is the new quantity of #{@input}"
+			@update = gets.chomp.to_i
+			@items[@input] = @update
+			clear
+			puts "The total has been updated to #{@update} bottles of #{@input}"
+		end
+	clear
 	list_items
 
 end
@@ -93,7 +98,4 @@ end
 
 list_items
 
-	# if @input == "Q"
-	# 	puts "Thanks for helping out with the inventory!"
-	# end
 
