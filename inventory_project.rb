@@ -30,10 +30,10 @@ def prompt
 
 	puts "Please enter the item you would like to edit:"
 	puts ""
-	puts "Enter A for Founder's KBS"
-	puts "Enter B for Bell's Hopslam"
-	puts "Enter C for Founder's Porter"
-	puts "Enter D for Anderson Valley Burboun Barrel Stout"
+	puts "Enter A for #{@kbs}"
+	puts "Enter B for #{@hop}"
+	puts "Enter C for #{@port}"
+	puts "Enter D for #{@av}"
 	puts ""
 	
 	puts "Type LIST for an up-to-date inventory list"
